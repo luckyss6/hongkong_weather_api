@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class WeatherFLW {
+public class FlwResponse {
     private String generalSituation; // 概况
     private String tcInfo; // 热带气旋资讯
     private String fireDangerWarning; // 火灾危险警告信息

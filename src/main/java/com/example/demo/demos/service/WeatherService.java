@@ -1,7 +1,6 @@
 package com.example.demo.demos.service;
 
-import com.example.demo.demos.response.WeatherFLW;
-import com.example.demo.demos.response.WeatherFND;
+import com.example.demo.demos.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -39,74 +38,74 @@ public class WeatherService {
     }
 
     // 本港地区天气预报
-    public WeatherFLW getFlw(){
-        return restTemplate.getForObject(combineURL(TC, FLW), WeatherFLW.class);
+    public FlwResponse getFlw(){
+        return restTemplate.getForObject(combineURL(TC, FLW), FlwResponse.class);
     }
 
-    public WeatherFLW getFlw(String lang){
+    public FlwResponse getFlw(String lang){
         if (!assertLang(lang)) {
             throw new IllegalArgumentException("language parameter error");
         }
-        return restTemplate.getForObject(combineURL(lang, FLW), WeatherFLW.class);
+        return restTemplate.getForObject(combineURL(lang, FLW), FlwResponse.class);
     }
 
     // 九天天气预报
-    public WeatherFND getFnd(){
-        return restTemplate.getForObject(combineURL(TC, FND), WeatherFND.class);
+    public FndResponse getFnd(){
+        return restTemplate.getForObject(combineURL(TC, FND), FndResponse.class);
     }
 
-    public WeatherFND getFnd(String lang){
+    public FndResponse getFnd(String lang){
         if (!assertLang(lang)) {
             throw new IllegalArgumentException("language parameter error");
         }
-        return restTemplate.getForObject(combineURL(lang, FND), WeatherFND.class);
+        return restTemplate.getForObject(combineURL(lang, FND), FndResponse.class);
     }
 
     // 本港地区天气报告
-    public String getRhrRead(){
-        return restTemplate.getForObject(combineURL(TC, RHR_READ), String.class);
+    public RhrReadResponse getRhrRead(){
+        return restTemplate.getForObject(combineURL(TC, RHR_READ), RhrReadResponse.class);
     }
 
-    public String getRhrRead(String lang){
+    public RhrReadResponse getRhrRead(String lang){
         if (!assertLang(lang)) {
             throw new IllegalArgumentException("language parameter error");
         }
-        return restTemplate.getForObject(combineURL(lang, RHR_READ), String.class);
+        return restTemplate.getForObject(combineURL(lang, RHR_READ), RhrReadResponse.class);
     }
 
     // 天气警告一览
-    public String getWarnSum(){
-        return restTemplate.getForObject(combineURL(TC, WARN_SUM), String.class);
+    public WarnSumResponse getWarnSum(){
+        return restTemplate.getForObject(combineURL(TC, WARN_SUM), WarnSumResponse.class);
     }
 
-    public String getWarnSum(String lang){
+    public WarnSumResponse getWarnSum(String lang){
         if (!assertLang(lang)) {
             throw new IllegalArgumentException("language parameter error");
         }
-        return restTemplate.getForObject(combineURL(lang, WARN_SUM), String.class);
+        return restTemplate.getForObject(combineURL(lang, WARN_SUM), WarnSumResponse.class);
     }
 
     // 详细天气警告信息
-    public String getWarningInfo(){
-        return restTemplate.getForObject(combineURL(TC, WARNING_INFO), String.class);
+    public WarningInfoResponse getWarningInfo(){
+        return restTemplate.getForObject(combineURL(TC, WARNING_INFO), WarningInfoResponse.class);
     }
 
-    public String getWarningInfo(String lang){
+    public WarningInfoResponse getWarningInfo(String lang){
         if (!assertLang(lang)) {
             throw new IllegalArgumentException("language parameter error");
         }
-        return restTemplate.getForObject(combineURL(lang, WARNING_INFO), String.class);
+        return restTemplate.getForObject(combineURL(lang, WARNING_INFO), WarningInfoResponse.class);
     }
 
     // 特别天气提示
-    public String getSwt(){
-        return restTemplate.getForObject(combineURL(TC, SWT), String.class);
+    public SwtResponse getSwt(){
+        return restTemplate.getForObject(combineURL(TC, SWT), SwtResponse.class);
     }
 
-    public String getSwt(String lang){
+    public SwtResponse getSwt(String lang){
         if (!assertLang(lang)) {
             throw new IllegalArgumentException("language parameter error");
         }
-        return restTemplate.getForObject(combineURL(lang, SWT), String.class);
+        return restTemplate.getForObject(combineURL(lang, SWT), SwtResponse.class);
     }
 }
