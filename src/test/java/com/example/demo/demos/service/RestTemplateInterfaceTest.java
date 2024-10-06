@@ -1,5 +1,6 @@
 package com.example.demo.demos.service;
 
+import com.alibaba.fastjson.JSON;
 import com.example.demo.demos.response.WeatherFLW;
 import com.example.demo.demos.response.WeatherFND;
 import org.junit.jupiter.api.Test;
@@ -14,13 +15,32 @@ class RestTemplateInterfaceTest {
 
     @Test
     public void testFLW(){
-        WeatherFLW resp = weatherService.getFLW(WeatherService.TC);
-        System.out.println("resp = " + resp);
+        WeatherFLW flw = weatherService.getFlw();
+        String string = JSON.toJSONString(flw);
+        System.out.println(string);
+    }
+
+    @Test
+    public void testFLWWithLang(){
+        WeatherFLW flw = weatherService.getFlw(WeatherService.SC);
+        System.out.println("flw = " + flw);
     }
 
     @Test
     public void testFND(){
-        WeatherFND fnd = weatherService.getFND(WeatherService.SC);
-        System.out.println("fnd = " + fnd);
+        WeatherFND fnd = weatherService.getFnd();
+        System.out.println(JSON.toJSONString(fnd));
+    }
+
+    @Test
+    public void testFNDWithLang(){
+        WeatherFND fnd = weatherService.getFnd(WeatherService.EN);
+        System.out.println(JSON.toJSONString(fnd));
+    }
+
+    @Test
+    public void testRHRREAD(){
+        String rhrread = weatherService.getRhrRead();
+        System.out.println(rhrread);
     }
 }
