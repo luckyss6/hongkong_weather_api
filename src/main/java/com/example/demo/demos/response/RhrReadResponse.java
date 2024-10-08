@@ -18,7 +18,7 @@ public class RhrReadResponse {
     private Temperature temperature;
     private Uvindex uvindex;
     private List<Integer> icon;
-    private List<String> warningMessage;
+    private Object warningMessage;
     private RainFall rainfall;
 }
 
